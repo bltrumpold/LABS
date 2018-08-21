@@ -1,2 +1,2 @@
-# LABS
+# LABSJS
 Labs are stored here
