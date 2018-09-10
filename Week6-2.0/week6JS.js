@@ -22,24 +22,16 @@ function doit()
     
     var output = document.querySelector("#output");
     
-    var para =document.querySelector("#p1");
+    var para0 = document.querySelector("#p0")
+    var para = document.querySelector("#p1");
     var para1 = document.querySelector("#p2")
     var para2 = document.querySelector("#p4"); 
    
     
-        var dataBaseArr = [];
-        var dataArr =[];
-        var softArr = [];
-        var webArr = [];
-    
-   
-    //lDataBase.addEventListener("click",listdata);
-    
-
-        
-    
-    
-    
+    var dataBaseArr = [];
+    var dataArr =[];
+    var softArr = [];
+    var webArr = [];
     
     
     fetch("http://ict.neit.edu/evanrense/salaries.php")
@@ -59,48 +51,8 @@ function doit()
         dataBaseArr = myJson; 
         
         
-
-    
-//--------------------------------------------------------------
-
-    function callback(dataBaseArr)
-    {
-            var newlist = [];
-        
-            for (var i=0; i<dataBaseArr.length;i++)
-            {
-                if (dataBaseArr[i].salary > dataBaseArr[i].salary )
-                {
-                    newlist.push(dataBaseArr[i]);
-                }
-            }
-        return newlist
-    }        
-    
-    function filter(dataBaseArr,callback)
-    {
-       return callback(dataBaseArr);
-    }
-        
-    var filtered = filter(dataBaseArr,callback)
-    console.log(filtered)
-        
-    //para.innerHTML = filtered;
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+  // set first innerhtml equal to highest paid person
+       
 //------------------------------------------------------         
     sub.addEventListener("click", search)
         
@@ -131,21 +83,20 @@ function doit()
     var filtered = filter(dataBaseArr,callback)
     console.log(filtered)
         
-    
-    
-        
-        
+    filtered.forEach(function (index, b){
+    para0.innerHTML += index.name.first
+    para0.innerHTML += " "
+    para0.innerHTML += index.name.last
+    para0.innerHTML += " "
+    para0.innerHTML += index.salary})
+                     
+                     
+                     
     }
         
         
    //------------------------------------------------------      
       
-        
-        
-        
-        
-        
-        
     lDataBase.addEventListener("click",listdata);
     lWebDev.addEventListener("click",listweb);
     lSoftWare.addEventListener("click",listsoft); 
@@ -174,21 +125,17 @@ function doit()
         var filtered = filter(dataBaseArr,callback)
         console.log(filtered)   
         
-        filtered.forEach(function (index, b){para.innerHTML = ""
-        para1.innerHTML +=   index.name.first;})
-        
-        /*filtered.forEach(function (index, b){para.innerHTML = ""
-        para1.innerHTML += index.name.last;}) 
-        
-        filtered.forEach(function (index, b){para.innerHTML = ""
-        para1.innerHTML += index.salary;}) */
-        
-        
-
-        
-        
-    } //list data end
-         
+       
+        filtered.forEach(function (index, b){
+        para1.innerHTML += index.name.first
+        para1.innerHTML += " "
+        para1.innerHTML +=   index.name.last
+        para1.innerHTML += " "
+        para1.innerHTML += index.salary
+        para1.appendChild(document.createElement("br"))})
+           
+    } //list data end 
+    
         
  //------------------------------------------------------        
     function listweb()
@@ -215,14 +162,14 @@ function doit()
     var filtered = filter(dataBaseArr,callback)
     console.log(filtered)
         
-        filtered.forEach(function (index, b){para.innerHTML = ""
-        para1.innerHTML += index.name.first;})
+        filtered.forEach(function (index, b){
+        para1.innerHTML += index.name.first
+        para1.innerHTML += " "
+        para1.innerHTML +=   index.name.last
+        para1.innerHTML += " "
+        para1.innerHTML += index.salary
+        para1.appendChild(document.createElement("br"))})
         
-        filtered.forEach(function (index, b){para.innerHTML = ""
-        para1.innerHTML += index.name.last;})
-        
-        filtered.forEach(function (index, b){para.innerHTML = ""
-        para1.innerHTML += index.salary;})
         
     
     }
@@ -252,14 +199,15 @@ function doit()
     var filtered = filter(dataBaseArr,callback)
     console.log(filtered)
         
-        filtered.forEach(function (index, b){para.innerHTML = ""
-        para1.innerHTML += index.name.first;})
+        filtered.forEach(function (index, b){
+        para1.innerHTML += index.name.first
+        para1.innerHTML += " "
+        para1.innerHTML +=   index.name.last
+        para1.innerHTML += " "
+        para1.innerHTML += index.salary
+        para1.appendChild(document.createElement("br"))})
         
-        filtered.forEach(function (index, b){para.innerHTML = ""
-        para1.innerHTML += index.name.last;})
         
-        filtered.forEach(function (index, b){para.innerHTML = ""
-        para1.innerHTML += index.salary;})
     } 
         
         
