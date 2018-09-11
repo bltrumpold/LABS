@@ -1,3 +1,4 @@
+//  ToDO-highlight highest paid avg in green and use local storage
 window.addEventListener("load", doit) 
  
 function doit()
@@ -6,10 +7,7 @@ function doit()
     var webDev = document.createElement('div');
     var softDev = document.createElement('div');
     
-    //var fName = document.querySelector("#first");
-    //var lName = document.querySelector("#last");
-    var highPaid = document.querySelector("#highest");
-    var highAvgPaid = document.querySelector("#average");
+
     
     var sub = document.querySelector("#search-submit"); 
     
@@ -197,6 +195,15 @@ function SoftEng()
         }
     }
     
+    var total
+    for (var i = 0; i < softArr.length; i++)
+    {
+        total += softArr[i].salary
+    }
+    var avg = total / softArr.length
+    
+    console.log(avg)
+    
     var sFname = document.querySelector("#FNameS")
     var sLname = document.querySelector("#LNameS")
     var sSalary = document.querySelector("#SoftS")
@@ -210,6 +217,12 @@ function SoftEng()
     
 }
 SoftEng()
+        
+function highAvg()
+{
+    
+}
+highAvg()
         
 //---------------------------------------------------------
     sub.addEventListener("click", search)
